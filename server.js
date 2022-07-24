@@ -18,6 +18,12 @@
 
 */
 
+/* 🍀 07 npm
+    npm init
+    npm install express
+    npm install nodemon 
+    npm install react-router-dom
+*/
 /* 
   🍀10 express 기본 예제,
    상위코드,
@@ -34,6 +40,11 @@ http.listen(8080, function () {
   console.log('listening on 8080')
 }); 
 
+/* 
+    🍉미들웨어 :
+    서버의 요청과 응답사이에 실행할 코드 , 
+    유저가 /~~url로 요청시, 응답하기전에 실행할 코드
+*/
 
 /* 
     // 🍉미들웨어. app.use(~),  express.static( path.join(__dirname, 'public') )) : 파일들이 있는 폴더 지정함
@@ -76,6 +87,14 @@ http.listen(8080, function () {
 // 🍀30 주소에 따라서, 자바스크립트 페이지 - 리액트 페이지 둘다 적용하기, 
 
 /* 
+    일반 자바스크립트 페이지 보다가,
+    특정페이지 들어갔을때, 리액트 페이지 보여주는 법
+
+    "/" 접속 : 자바스크립트 html페이지 보여줌
+    "/react"접속 :  리액트 페이지 보여줌
+*/
+
+/* 
     1 미들웨어 설정
     app.use( '/',
     app.use( '/react'
@@ -109,3 +128,13 @@ app.get('/react',(req요청,res응답)=>{
 });
 
 
+
+
+
+/* 
+    🍀40계속 중간에 멈추고 build를 해야하는가??
+
+    ㄴㄴ, 라이브로 가능함
+
+    proxy 검색
+ */
