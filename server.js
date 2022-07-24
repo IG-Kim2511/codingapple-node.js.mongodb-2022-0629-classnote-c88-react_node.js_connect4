@@ -50,32 +50,62 @@ http.listen(8080, function () {
 
 
 
-// 🍀20  react폴더- build폴더 내용 보여주기
+// 🍀20 react폴더- build폴더 내용 보여주기 , router적용하기
 /* 
    리액트폴더안에서 npm run build실행
 
    'react-project/build/index.html' 지정
 */
 
+/* 
+    // 미들웨어
+    app.use( '/', express.static( path.join(__dirname, 'react-project/build') ))
+
+    // app.get('/'
+    app.get('/',(req요청,res응답)=>{
+        res응답.sendFile(path.join(__dirname,'react-project/build/index.html'));
+    });
+
+    //🍉리액트 router : 이 코드 추가하면 제대로 작동함
+    // app.get('*'  : 유저가 url 아무거나 입력하면, 리액트html보내주기
+    app.get('*',(req요청,res응답)=>{
+        res응답.sendFile(path.join(__dirname,'react-project/build/index.html'));
+    });
+*/
+
+// 🍀30 주소에 따라서, 자바스크립트 페이지 - 리액트 페이지 둘다 적용하기, 
+
+/* 
+    1 미들웨어 설정
+    app.use( '/',
+    app.use( '/react'
+
+    2 get 주소 설정
+    app.get('/',~) 
+    app.get('/react'
+
+    3. 리액트폴더 -> package.json ->   "homepage": "/react", 추가
+
+    4. npm run build
+*/
+
+
 
 // 미들웨어
-app.use( '/', express.static( path.join(__dirname, 'react-project/build') ))
+app.use( '/', express.static( path.join(__dirname, 'public') ))
 
-// app.get('/'
+app.use( '/react', express.static( path.join(__dirname, 'react-project/build') ))
+
+
+//app.get('/',~)  :  '/'로 접속하면, ~~폴더의 ~~파일 보내줌
 app.get('/',(req요청,res응답)=>{
-    res응답.sendFile(path.join(__dirname,'react-project/build/index.html'));
+    res응답.sendFile(path.join(__dirname,'public/c88.html'));
 });
 
 
-
-
-
-
-// 미들웨어
-// app.use( '/react', express.static( path.join(__dirname, 'react-project/build') ))
-
-
-
-
+// app.get('/react'
+app.get('/react',(req요청,res응답)=>{
+    res응답.sendFile(path.join(__dirname,'react-project/build/index.html'));
+});
 
 
