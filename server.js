@@ -52,7 +52,9 @@ http.listen(8080, function () {
 
 // 🍀20  react폴더- build폴더 내용 보여주기
 /* 
-    npm run build
+   리액트폴더안에서 npm run build실행
+
+   'react-project/build/index.html' 지정
 */
 
 
